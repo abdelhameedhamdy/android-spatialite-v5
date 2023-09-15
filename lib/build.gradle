@@ -43,6 +43,14 @@ android {
     }
     // ndk gradle support is still very bad so it's built with the regular ndk-build
     sourceSets.main.jni.srcDirs = ['src/main/none']
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
 }
 
 dependencies {
